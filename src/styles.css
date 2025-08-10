@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom additions for shiny look */
+:root{
+  --muted: #9aa4b2;
+  --accent: #06b6d4;
+}
+/* make body slightly lighter */
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* card tweak so absolute overlay works */
+.card-wrap { position: relative; }
+
+/* a subtle pulse used for lost card overlay */
+@keyframes pulse-soft {
+  0% { box-shadow: 0 0 0 0 rgba(244,63,94,0.06); }
+  70% { box-shadow: 0 8px 16px 8px rgba(244,63,94,0.02); }
+  100% { box-shadow: 0 0 0 0 rgba(244,63,94,0); }
+}
+.animate-pulse { animation: pulse-soft 1s ease-out; }
+
+/* small sparkle animation declared via tailwind.config but fallback here */
+.animate-sparkle { animation: sparkle 900ms infinite alternate; }
+
+/* Sad drop animation fallback */
+@keyframes sadDrop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+.animate-sadDrop { animation: sadDrop 1100ms ease-out forwards; }
